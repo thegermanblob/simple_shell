@@ -40,6 +40,5 @@ To use this shell first	of all you must	clone this repository, using the next c 
 
 ```
 
-![Lol](https://c4.wallpaperflare.com/wallpaper/268/388/54/ship-sea-pixels-pixel-art-wallpaper-preview.jpg)
 
 **Designed by Andres Morales , Isaac Morales
