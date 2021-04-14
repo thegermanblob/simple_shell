@@ -7,14 +7,11 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#define _GNU_SOURCE
-
 /**
- * struct list_s - singly linked list
- * @str: string tokenized of command line arguments.
- * @next: points to the next node in the linked list.
+ * struct list_s - linked list
+ * @str: string
+ * @next: next node in the list.
  *
- * Description: singly linked list, the nodes are agregated at the end.
  */
 typedef struct list_s
 {
@@ -23,23 +20,22 @@ typedef struct list_s
 } list_t;
 
 /**
- * struct list_env - singly linked list
- * @key: string tokenized of command line arguments.
- * @value: string tokenized of command line arguments.
- *         Both arguments correspondig to 'KEY=value'.
+ * struct list_env - linked list
+ * @var: variable name.
+ * @value: value for variable.
+ *
  * @next: points to the next node in the linked list.
  *
- * Description: singly linked list, the nodes are agregated at the end.
  */
 typedef struct list_env
 {
-	char *key;
+	char *var;
 	char *value;
 	struct list_env *next;
 
 } env_t;
 extern char **environ;
-char *get_commands(void);
+char *input(void);
 list_t *add_node_at_end(list_t **head, const char *str);
 int _strlen(const char *s);
 int _strcmp(const char *s1, const char *s2);
@@ -51,7 +47,7 @@ env_t *add_node_list_env(env_t **head, char *str);
 char *_getenv(const char *name);
 char **dir_path(char *cmd);
 void free_list(list_t *head);
-void free_list_env(env_t *head);
-void free_array(char **arr);
-void exe_builtin(char **vector);
+void freenv(env_t *head);
+void freearr(char **arr);
+void exebuiltin(char **vector);
 #endif
