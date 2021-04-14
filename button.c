@@ -81,7 +81,7 @@ char *_getenv(const char *name)
 			value = _strdup(head->value);
 		head = head->next;
 	}
-	free_list_env(head);
+	input(head);
 	return (value);
 }
 /**
@@ -115,9 +115,9 @@ char **get_argv(char *input)
 		head = head->next;
 		i++;
 	}
-	free_list(head);
+	input(head);
 	av[count] = NULL;
-	exe_builtin(av);
+	exebuiltin(av);
 	if (av[0][0] != '/')
 	{
 		tmp = dir_path(av[0]);
@@ -134,13 +134,13 @@ char **get_argv(char *input)
 	return (av);
 }
 /**
- * exe_builtin - executes builtins commands.
+ * exebuiltin - executes builtins commands.
  * @vector: array of string.
  *
  * Return: nothing.
  *
  */
-void exe_builtin(char **vector)
+void exebuiltin(char **vector)
 {
 	int i = 0;
 
