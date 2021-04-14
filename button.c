@@ -1,9 +1,9 @@
 /**
  * dir_path - link 'ctl' with all of directories in the enviroment
  * varible PATH.
- * @ctl: command to link.
+ * @ctl: command to link directories.
  *
- * Return: An array of string with all link  directories with the ctl.
+ * Return: An array of string with all link directories with the ctl.
  */
 char **dir_path(char *ctl)
 {
