@@ -35,9 +35,6 @@ int _setenv(const char *name, const char *value, int ovewrite)
 		strcat(strcat(n , "="), value);
 		environ[i] = n;
 	}
-	var = malloc(sizeof(char) * strlen(genv("hello")));
 
-	var = genv("hello");
-	printf("%s\n", var);
 	return (0);
 }

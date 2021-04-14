@@ -18,6 +18,7 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+extern char **environ;
 list_t *add_node_end(list_t **head, const char *str);
 char *splitpath();
 size_t print_list(const list_t *h);
