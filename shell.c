@@ -1,6 +1,6 @@
 #include "head.h"
 /**
- * main - Entry point. Runs a basic command line interpreter.
+ * main - runs a Shell.
  *
  * Return: always 0.
  */
