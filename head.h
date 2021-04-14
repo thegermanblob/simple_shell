@@ -7,6 +7,8 @@
 #include <string.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 char **inarr();
 void init_shell();
 int input(char **instr);

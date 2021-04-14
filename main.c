@@ -21,7 +21,6 @@ int main()
 		input(instr);
 		if (_strcmp(instr[0], "exit\n") == 0)
 		{
-			kill(pid, SIGKILL);
 			ext = 0;
 		}
 		else
@@ -29,8 +28,11 @@ int main()
 			pid = fork();
 			if (pid == 0)
 			{
-				if (execve(instr[0],instr, NULL) == -1)
-					printf("fail to exec");
+				for (i = 0; instr[i]; i++)
+					printf("%s", instr[i]);
+				if (execve(instr[0],instr, environ) == -1)
+					printf("fail to exec\n");
+				exit(98);
 			}
 			else
 			{
@@ -44,7 +46,6 @@ int main()
 	/*	for(i = 1000; i >= 0; i--)
 			free(instr[i]);
 		free(instr);*/
-//make a strcmp switch that checks the 0 of 0 instr for / to see if full path command or if just command then execve it
 
 
 	return(0);
