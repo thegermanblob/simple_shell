@@ -1,4 +1,4 @@
-.TH simple_shell 1 "April 14 2021"  "simple_shell General Manual"
+.TH simple_shell 
 .SH NAME
 .B simple_shell
 - UNIX command line interpreter.
@@ -37,4 +37,4 @@ Errors that are detected by the shell, such a syntax error, will cause an exit s
 
 .SH BUGS
 
-No known bugs.
+isos chaotic commits
