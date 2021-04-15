@@ -84,8 +84,8 @@ char *genv(char *name)
 	return (value);
 }
 /**
- * getarg - takes input and tokenize it 
- * @input: string from command line.
+ * getarg - takes input and tokenize it
+ * @input: string from command line
  * @ex1t: exit param
  *
  * Return: array of string.

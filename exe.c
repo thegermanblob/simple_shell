@@ -4,7 +4,7 @@
  * @comm: command
  * @ex1t: exit param
  *
- * Return: nothing.
+ * Return: nothing
  *
  */
 void exebuiltin(char **comm, int *ex1t)
@@ -70,7 +70,7 @@ env_t *add_node_list_env(env_t **head, char *str)
  *
  * Return: pointer to new node
  */
-list_t *add_node_at_end(list_t **head,char *str)
+list_t *add_node_at_end(list_t **head, char *str)
 {
 	list_t *new, *temp;
 
