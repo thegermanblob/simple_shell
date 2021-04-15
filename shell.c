@@ -20,12 +20,6 @@ int main(void)
 		{
 			in = getcomm();
 			av = getarg(in, &ex1t);
-			if (_strcmp(in, "exit"))
-			{
-				ex1t = 0;
-				free(in);
-				exit(98);
-			}
 			status = execve(av[0], av, environ);
 
 			if (status == -1)
