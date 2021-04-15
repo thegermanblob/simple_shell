@@ -32,7 +32,7 @@ char **dpath(char *ctl)
 	return (dir);
 }
 /**
- * get_commands - gets input
+ * getcomm - gets input
  *
  * Return: command string
  */
@@ -98,7 +98,6 @@ char **getarg(char *input, int *ex1t)
 	struct stat st;
 
 	arr = _strdup(input);
-	free(input);
 	t = strtok(arr, " ");
 	while (t != NULL)
 	{

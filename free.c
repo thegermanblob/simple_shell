@@ -32,7 +32,7 @@ void freenv(env_t *head)
 	}
 }
 /**
- * free_array - free an array
+ * freearr - free an array
  * @arr: array
  *
  * Return: nothing
