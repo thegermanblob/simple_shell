@@ -23,6 +23,7 @@ int main(void)
 			if (_strcmp(in, "exit"))
 			{
 				ex1t = 0;
+				free(in);
 				exit(98);
 			}
 			status = execve(av[0], av, environ);
