@@ -1,84 +1,40 @@
-.TH Shell 3 "26 November 2019" "1.0" "Simple Shell Manual"
-
+.TH simple_shell 1 "April 14 2021"  "simple_shell General Manual"
 .SH NAME
-.B Simple Shell - a simple UNIX command interpreter in C
+.B simple_shell
+- UNIX command line interpreter.
 
 .SH SYNOPSIS
-simple_shell [command] [file]
+.B ./hsh
+- [option_name] [command_file]
 
 .SH DESCRIPTION
-The program runs based on bash commands obtained from the input stream by the
-user. Any text seperated by a single space is considered to be an argument.
-The respective command typed by the user is then executed as if in a UNIX shell.
 
-A command is a sequence of non blank words separated by a blank space. The first
-word specifies the name of the command to be executed and subsequent arguments
-are considered to be flags associated with the command.
+.B Simple shell
+it is a simple version of a command line interpreter for the system. The simple shell read lines from either the terminal, interpretes them, and generally executes other commands. It incorporates mode interactive and non-interactive, the commands can be executed while the program is running or can be executing a command within a file directly by the shell.
 
-Lines on shell can be read interactively from standard output. It can also, be
-read non-interactively where you can pipe in the file. It is designed so it can
-act like Bash. It does not however, handle certain bash features
-such as options.
+.SS INVOCATION
 
-.SH Arguments
-From input, the first argument is assumed to be an executable command file. It
-follows the parameters taken by that particular command.
+To start the interactive mode the program will be executed, then starts the mode indicated by '$', to exit of the mode type 'exit' or type 'ctrl + d' and in the mode non-interactive the location that contains the command to be executed must be specified in the command line.
 
-.B hsh
-is the executable that will interpret the command. It executes it and then,
-exit. With exit, an exit status returns with the status of the previous command
-executed. For instance, status is 0 on non-execution.
+.SS EXECUTION
 
-.SH INTERACTIVE MODE EXAMPLE
-.PP
-.PP
-$ ./hsh
-.PP
-##---> /bin/ls
-.PP
-hsh main.c shell.c
-.PP
-##---> exit
-.PP
-$
-.PP
-.PP
-.SH NON-INTERACTIVE MODE EXAMPLE
-.PP
-.PP
-$ echo "/bin/ls" | ./hsh
-.PP
-.PP
-hsh main.c shell.c test_ls_1
-.SH ENVIRONMENT
-When the simple shell is invoked, it is given an array of strings called
-the environment. Note that string is a copy. The strings are environment
-variables and are represented in this format
-.B name=value
-.
-.SH BUILTIN COMMANDS
-The following commands below are called and handled directly in the shell.
-Therefore, these commands do not need to call upon a child process to be
-executed. However, with the exit builtin it returns an exits status of 0
-on successful execution. In failure, the exit will return 126 when the
-command invoked can not execute. Also, it will return 127 when the command
-is not found. It will return a value of 2 in failure--misuse of the shell
-builtin.
+The program takes the arguments of the command line in a string and it is tokenizes into words using "space" as a delimiter, the first word is consider the command and all remaining are considered the arguments to that command. If the command is valid:
 
-The following commands are executed in the shell as builtins
+1. If the first argument is different to '.', '/' or shell builtin, the program searches in the PATH and then invocates it.
+2. If the first character is '.' or '/', the program executes that typed command with the passed argument.
 
-.B exit
+.SH SEE ALSO
 
-	Exits the shell
+psh(1), environ(7), ksh(1), test(1)
 
-.B env
+.SS Command Exit status 
 
-	Prints the variables from the current environment
+The Exit command status could vary depending of the typed command and his behavior, in the caso of a builtin command return exit codes, as does an executed shell function.
 
+.SS EXIT STATUS
+
+Errors that are detected by the shell, such a syntax error, will cause an exit specifying that file or directory does not exist. If a type a command with a syntax error, the output specifies 'No such file or directory'. 
 
 .SH BUGS
-No known bugs
 
-
-.SH AUTHORS
-Andres Morales & Isaac Morales
+No known bugs.
