@@ -8,18 +8,18 @@
 int main(void)
 {
 	char *in, **av;
-	pid_t PID;
-	int status;
+	pid_t pid;
+	int status, ex1t;
 
 
-	while (1)
-	{
-		PID = fork();
+	do {
+		pid = fork();
+	ex1t = 1;
 
-		if (PID == 0)
+		if (pid == 0)
 		{
-			in = input();
-			av = get_argv(in);
+			in = getcomm();
+			av = getarg(in, &ex1t);
 			status = execve(av[0], av, environ);
 
 			if (status == -1)
@@ -29,13 +29,15 @@ int main(void)
 			}
 			else
 				freearr(av);
+			exit(98);
 
 		}
-		else if (PID == -1)
+		else if (pid == -1)
 			exit(EXIT_FAILURE);
 		else
 			wait(NULL);
 
-	}
+	} while (ex1t);
+
 	return (0);
 }
